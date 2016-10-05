@@ -32,6 +32,10 @@ export class Angular2TokenService implements CanActivate {
         return this._currentUserData;
     }
 
+    get currentAuthData(): AuthData {
+        return this._currentAuthData;
+    }
+
     private _options: Angular2TokenOptions;
     private _currentUserType: UserType;
     private _currentAuthData: AuthData;
@@ -51,9 +55,9 @@ export class Angular2TokenService implements CanActivate {
             // Redirect user to sign in if signInRedirect is set
             if(this._options.signInRedirect)
                 this._router.navigate([this._options.signInRedirect]);
-            
+
             return false;
-        }         
+        }
     }
 
     // Inital configuration
